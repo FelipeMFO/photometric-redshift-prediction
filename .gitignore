@@ -1,4 +1,7 @@
 data
+.vscode/
 
-*.pkl
-*.avro
+.csv
+.pkl
+.ipynb_checkpoints
+

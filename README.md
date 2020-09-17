@@ -1,4 +1,4 @@
-# Article_Supernova_Identification
+# Supernova Identification
 
 Source code and processed data from the Article 
 

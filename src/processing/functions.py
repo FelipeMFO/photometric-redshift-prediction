@@ -33,7 +33,7 @@ def read_sn(file_name):
         lines = fp.readlines()[:-1]
         
     lines = [line.replace('\n','').replace('+-','').split() for line in lines]
-    lines = [line[:line.index('#')] if '#' in line else line for line in lines]
+    lines = [line[:line.index('Commun#')] if '#' in line else line for line in lines]
     lines = [line for line in lines if line != list()]
     
     meta_data = {line[0].replace(':',''): list(map(to_number, line[1:]))
@@ -146,6 +146,7 @@ def wavelets(obj, wavelet = 'sym2', mlev = 2 ):
     return coeffs
 
 def get_df_PCA(df_GP_wav, PCA_n = 20, print_variance = True):
+    '''Applies PCA and return data frame with features.'''
     #wav = df_GP_wav['wavelets']
     wav = np.array(df_GP_wav['wavelets'].tolist())
     pca = PCA(n_components = PCA_n)

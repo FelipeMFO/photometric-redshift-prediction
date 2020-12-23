@@ -1,20 +1,14 @@
 -> Ver se coloco a tentativa de vectorização no artigo.
 -> Esses magics de memit e time nao tao funcionando pra pegar o tempo de processamento da celula
 -> E acho que os increments tb nao sao isso nao
+-> Ver se é necessário fazer uma função que calcule o SIGMA MAD
 
-import os
-import sys
-module_path = os.path.abspath(os.path.join('..'))
-if module_path not in sys.path:
-    sys.path.append(module_path)
-    
-    
     
     
 IN ORDER TO ANY DEBUG OR ANALYSIS, PICKLES HAVE BEEN CRATED JUST AFTER EACH PREPROCESS STEP
     
     
-    
+
     
     
 #module_path = os.path.abspath(os.path.join('..'))

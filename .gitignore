@@ -3,7 +3,7 @@ models
 __pycache__
 .vscode/
 
-.csv
-.pkl
-.ipynb_checkpoints
-
+*.csv
+*.pkl
+*.ipynb_checkpoints
+*.zip

@@ -1,3 +1,30 @@
 -> Ver se coloco a tentativa de vectorização no artigo.   
     
 IN ORDER TO ANY DEBUG OR ANALYSIS, PICKLES HAVE BEEN CRATED JUST AFTER EACH PREPROCESS STEP
+
+
+
+#### Notes:
+https://arxiv.org/pdf/1806.06607.pdf
+https://arxiv.org/pdf/2009.12112.pdf
+
+	- Sigma MAD:
+		-> Sigma MAD, desvio quadratico médio da mediana https://arxiv.org/pdf/1806.06607.pdf (4.1. Metrics)
+
+	- Selecionar só IA
+		DONE -> (tirar os outliers obviamente, que sao os zuados, ver pelos boxplots)
+			R: Só piora
+		DONE -> Tirar os outliers de antes, aqueles que tem poucos pontos de interpolação.
+			R: Melhor resposta foi quando o limiar foi 4 pontos e mesmo assim só foi 8^10-4 de melhora, muito insignificante e sem nem considerar a valiação em cima daqueles que ele não treinou.
+		-> Menor do que 0.1 ta bem razoavel. 0.03*(1 + Z)
+
+	- Ver se tem como abrir as árvores no XGBoost
+		-> Ver o valor de redshift que cada Decision tree deu e plotar o histograma (o objetivo final) ter a pdf do redshift		
+
+	- Outros Detalhes:
+		-> Analisar tempo de processamento e tempo gasto durante pipeline (ver como eu faço as magics,tem que ser por linha provavelmente)
+			. DONE Não funcionou, demorou 4-5 horas um GP Buscar vetorizar com numpy array o GP .
+		-> Analisar melhor os describes e as distribuições reais e as previstas do melhor algoritmo
+		-> NAO SEI SE VALE Rodar a regressão com os valores do GP (antes mesmo dos wavelets)
+		-> Auto ML: h2o.AI, autoKeras
+

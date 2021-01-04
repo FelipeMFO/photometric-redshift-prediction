@@ -10,11 +10,14 @@ Different data frames used on this project were saved on pickle files in order t
 	-enriched
 	-raw
 	-structured
+	
 -models
+
 -notebooks
 	-evaluating
 	-modelling
 	-processing
+	
 -src
 	-modelling
 	-precessing
@@ -26,11 +29,13 @@ All models and data are available for downloading at the following link: https:/
 
 ```
 data: contain all pickles, .csv and .DAT used and generated during project.
+
 	data/enriched: contain results, files with evaluation comparing models and data frames with final models' predictions.
 	data/raw: contain files from LSST survey (download link here { ` PEGAR LINK COM O MARCELO ` })
 	data/structured: contain data frames and csv files used during the project development. Checkpoint like files to debug, continuation and evaluation.
 
 notebooks: folder containing analysis and development of the project.
+
 	notebooks/processing: first notebooks. Responsible for pipelines to generate features and target values.
 	notebooks/modeling: notebooks in which models were developed. 
 	notebooks/evaluating: notebooks in which models were evaluated to assess their efficiency and score.

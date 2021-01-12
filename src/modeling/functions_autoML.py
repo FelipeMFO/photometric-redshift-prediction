@@ -100,7 +100,7 @@ def gen_gaussian_kde(preds, points = 100):
     Return gaussian_kde values after receiving the prediction values.
     """
     pdf = gaussian_kde(preds).pdf(np.linspace(preds.min(), preds.max(), points))
-    return pdf
+    return pdf, np.linspace(preds.min(), preds.max(), points)
 
 def print_gaussian_kde(pdf, preds, real_value, best_pred, title, points = 100):
     """
@@ -118,9 +118,10 @@ def print_gaussian_kde(pdf, preds, real_value, best_pred, title, points = 100):
 def gen_df_gaussian_kde(df_predictions, export_csv = False, **kwargs):
     ans = copy.deepcopy(df_predictions)
     predictions = df_predictions.loc[:,df_predictions.columns[1]:df_predictions.columns[-1]].values.reshape(len(df_predictions),52)    
-    ans['PDF'] = None
+    ans['PDF'], ans['PDF_X_axis'], ans['predictions'] = None, None, None
     for i in range(len(predictions)):
-        ans['PDF'].iloc[i] = predictions[i]
+        ans['PDF'].iloc[i], ans['PDF_X_axis'].iloc[i] = gen_gaussian_kde(predictions[i])
+        ans['predictions'].iloc[i] = predictions[i]
     if export_csv:
-        ans[['REDSHIFT_SPEC',kwargs.get('best_model'),'PDF']].to_csv(kwargs.get('path'))
-    return ans[['REDSHIFT_SPEC',kwargs.get('best_model'),'PDF']]
+        ans[['REDSHIFT_SPEC',kwargs.get('best_model'),'PDF', 'PDF_X_axis', 'predictions']].to_csv(kwargs.get('path'))
+    return ans[['REDSHIFT_SPEC',kwargs.get('best_model'),'PDF', 'PDF_X_axis', 'predictions']]

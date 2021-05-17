@@ -24,7 +24,8 @@ def get_n_fraction(delta_z):
 
 def get_metrics_from_batchs(dict_batchs: dict,
                             df: pd.DataFrame) -> dict:
-    """[summary]
+    """Get metrics from batchs of different models, trained with different
+    data set sizes.
 
     Args:
         dict_batchs (dict): dictionary with amls objects as values,
@@ -32,7 +33,7 @@ def get_metrics_from_batchs(dict_batchs: dict,
         df (pd.DataFrame): DataFrame with all data (only IA type)
 
     Returns:
-        dict: [description]
+        dict: metric and size specification as keys and result as value.
     """
     ans = {}
     for key in dict_batchs.keys():

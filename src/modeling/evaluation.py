@@ -36,12 +36,17 @@ def get_metrics_from_batchs(dict_batchs: dict,
     """
     ans = {}
     for key in dict_batchs.keys():
-        preds, len_train, len_validation = \
-            gen_predictions(df.iloc[-int(key[5:]):], dict_batchs[key].get_best_model())
-        df_sigma_mad = df.iloc[-len_validation:]
-        df_sigma_mad['zphot'] = preds.as_data_frame()['predict'].tolist()
+        df_validation = df.iloc[int(key[5:]):]
+        model = dict_batchs[key].get_best_model()
+        preds = model.predict(h2o.H2OFrame(df_validation.loc[:,'f1':'f20']))
+        print('\n', f"{len(df)-len(df_validation)} train/test objects ",
+              "\n",
+              f"and {len(df_validation)} validation objects"
+        )
 
-        delta_z = get_delta_z(df_sigma_mad.zphot.values, df_sigma_mad.REDSHIFT_SPEC.values)
+        df_validation['zphot'] = preds.as_data_frame()['predict'].tolist()
+
+        delta_z = get_delta_z(df_validation.zphot.values, df_validation.REDSHIFT_SPEC.values)
         prediction_bias = get_prediction_bias(delta_z)
         MAD = get_MAD(delta_z, prediction_bias)
         sigma_MAD = get_sigma_MAD(MAD)

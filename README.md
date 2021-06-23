@@ -1,6 +1,6 @@
 # Redshift Prediction
 
-## Source code and notebooks used during Article ` Full Article Name Here `
+## Source code and notebooks used during Article ` Photometric redshift determination from Type Ia Supernovae light curves `
 
 Different data frames used on this project were saved on pickle files in order to promote a pipeline checkpoint.
 
@@ -10,7 +10,7 @@ Different data frames used on this project were saved on pickle files in order t
 	-enriched
 	-raw
 	-structured
-	
+	    
 -models
 
 -notebooks
@@ -33,10 +33,12 @@ Different data frames used on this project were saved on pickle files in order t
     * notebooks/modeling: notebooks in which models were developed. 
     * notebooks/evaluating: notebooks in which models were evaluated to assess their efficiency and score.
 
+- models: Folder with models saved as MOJOs.
+
 - src: Python files with functions used during notebooks' procedures.
 
 All models and data are available for downloading at the following link: https://drive.google.com/drive/folders/1FP3515CzNqQJY0PZFSWT9y7gC8ldi8pm?usp=sharing .
 
 For proper notebook running they must ne unzipped on the root of this project. 
 
-
+For further information, doubts, and observations, please contact felipemathfo@gmail.com

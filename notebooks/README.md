@@ -5,6 +5,7 @@ The Notebooks folder contains analysis and development of the project
 ### The code was structured following this order:
 
 -notebooks
+
 	-evaluating
         . autoML_robstuness_evaluation.ipynb - Evaluate AutoML model's robustness by training it and assessing it performance for different sizes of data sets.
         . autoML_sigma_MAD.ipynb - Evaluate AutoML model's by the metrics of sigma MAD and other metrics presented on https://arxiv.org/pdf/1806.06607.pdf .

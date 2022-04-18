@@ -1,5 +1,6 @@
 data
 models
+.photometric_redshift_prediction
 .prp-env
 __pycache__
 .vscode/

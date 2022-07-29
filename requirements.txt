@@ -35,7 +35,7 @@ MarkupSafe==2.0.1
 matplotlib==3.4.3
 matplotlib-inline==0.1.2
 memory-profiler==0.58.0
-mistune==0.8.4
+mistune==2.0.3
 nbclassic==0.3.1
 nbclient==0.5.4
 nbconvert==6.1.0

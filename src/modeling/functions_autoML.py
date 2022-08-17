@@ -61,10 +61,10 @@ def read_models(path):
         pass
     models = {}
     for file in filenames:
-        models[file] = h2o.import_mojo(f'../../models/mojo_50_ensemble/{file}')
+        models[file] = h2o.import_mojo(f'../../models/mojo_50_ensemble_08validation_lowerzhalf/{file}')
     return models
 
-def gen_predictions(df, model, validation_ratio = .5, return_len = True):
+def gen_predictions(df, model, validation_ratio = .999999, return_len = True):
     """
     Receives DataFrame and model, it split the frame and returns predictions and len of splits.
     """

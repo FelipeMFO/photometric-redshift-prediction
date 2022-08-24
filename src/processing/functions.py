@@ -33,7 +33,7 @@ def read_sn(file_name):
         lines = fp.readlines()[:-1]
         
     lines = [line.replace('\n','').replace('+-','').split() for line in lines]
-    lines = [line[:line.index('Commun#')] if '#' in line else line for line in lines]
+    # lines = [line[:line.index('Commun#')] if '#' in line else line for line in lines]
     lines = [line for line in lines if line != list()]
     
     meta_data = {line[0].replace(':',''): list(map(to_number, line[1:]))

@@ -53,15 +53,19 @@ def save_aml_models(aml):
 
 #-------------------- Prediction Related Functions --------------------
 
-def read_models(path):
+def read_models(path, debug: bool = False):
     """
     Return dict of models inside specified folder.
     """
     for (dirpath, dirnames, filenames) in walk(path):
         pass
     models = {}
-    for file in filenames:
-        models[file] = h2o.import_mojo(f'../../models/mojo_50_ensemble_08validation_lowerzhalf/{file}')
+    # TODO Bug here! To fix change directly the path inside this function
+    for i, file in enumerate(filenames):
+        if debug:
+            with open("broken_model.txt", "w") as text_file:
+                text_file.write(f"Problem in: {filenames[i]}")
+        models[file] = h2o.import_mojo(f'{path}/{file}')
     return models
 
 def gen_predictions(df, model, validation_ratio = .999999, return_len = True):
@@ -117,7 +121,7 @@ def print_gaussian_kde(pdf, preds, real_value, best_pred, title, points = 100):
     
 def gen_df_gaussian_kde(df_predictions, export_csv = False, **kwargs):
     ans = copy.deepcopy(df_predictions)
-    predictions = df_predictions.loc[:,df_predictions.columns[1]:df_predictions.columns[-1]].values.reshape(len(df_predictions),52)    
+    predictions = df_predictions.loc[:,df_predictions.columns[1]:df_predictions.columns[-1]].values.reshape(len(df_predictions),len(df_predictions.columns)-1)    
     ans['PDF'], ans['PDF_X_axis'], ans['predictions'] = None, None, None
     for i in range(len(predictions)):
         ans['PDF'].iloc[i], ans['PDF_X_axis'].iloc[i] = gen_gaussian_kde(predictions[i])
